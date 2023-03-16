@@ -1,0 +1,25 @@
+from math import sqrt
+import matplotlib.pyplot as plt
+%matplotlib notebook
+
+#criando variáveis 
+
+r=100
+a=100
+b=100
+
+x=[]
+y=[]
+
+x = [i for i in range(2*r+1)]
+
+y_x = lambda x : sqrt((r**2)-(x-a)**2) + b # isola o y
+y_x_m = lambda x : -sqrt((r**2)-(x-a)**2) + b # acrescenta números negativos para completar a circunferência
+
+
+y.extend(list(map(y_x,x))) # lista(função) # extend adiciona elementos ao final da lista atual
+y.extend(list(map(y_x_m,x)))
+
+x.extend(x) # dobrando a lista de x para completar a circunferência
+
+plt.plot(x,y)
